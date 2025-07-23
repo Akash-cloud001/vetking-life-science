@@ -1,3 +1,7 @@
+/* Import Geist font */
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+@import "tailwindcss";
+
 /* Reset and base styles */
 * {
   margin: 0;
@@ -7,7 +11,8 @@
 
 :root {
   --primary-purple: #6366f1;
-  --primary-blue: #3b82f6;
+  /* --primary-blue: #3498db; */
+  --primary-green: #27ae60;
   --dark-purple: #4f46e5;
   --light-purple: #e0e7ff;
   --white: #ffffff;
@@ -21,8 +26,22 @@
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  --gradient-primary: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-blue) 100%);
+  --gradient-primary: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-green) 100%);
   --gradient-light: linear-gradient(135deg, var(--light-purple) 0%, #dbeafe 100%);
+
+  --font-geist: 'Geist', sans-serif;
+  --font-branch: 'branch', sans-serif;
+}
+@theme {
+  --font-geist: var(--font-geist);
+  --font-branch: var(--font-branch);
+  --color-primary-green: var(--primary-green);
+  --color-primary-purple: var(--primary-purple);
+}
+@font-face {
+  font-family: 'branch';
+  src: url('/fonts/Branch.ttf') format('truetype');
+  font-style: normal;
 }
 
 body {
@@ -117,32 +136,17 @@ body {
 }
 
 /* Hero section */
-.hero {
-  background: var(--gradient-light);
-  padding: 4rem 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
 
-.hero-content {
-  max-width: 800px;
-  margin: 0 auto;
-}
 
-.hero h1 {
+
+/* .hero h1 {
   font-size: 3rem;
   font-weight: 700;
   color: var(--gray-900);
   margin-bottom: 1.5rem;
   line-height: 1.2;
-}
+} */
 
-.hero p {
-  font-size: 1.25rem;
-  color: var(--gray-600);
-  margin-bottom: 2rem;
-}
 
 /* Section styles */
 .section {
@@ -252,6 +256,13 @@ body {
 .team-role {
   color: var(--gray-600);
   margin-bottom: 1rem;
+}
+
+.team-description {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  margin-bottom: 1rem;
+  line-height: 1.5;
 }
 
 .social-links {
