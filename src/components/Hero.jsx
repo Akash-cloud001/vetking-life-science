@@ -7,7 +7,7 @@ import Dna from './svgs/Dna'
 import ImageCarousel from './ui/ImageCarousel'
 const Hero = () => {
   return (
-    <section className="h-[calc(100dvh-85px)] flex items-center justify-start relative overflow-hidden">
+    <section className="flex items-center justify-start relative overflow-hidden" style={{ height: 'calc(100dvh - var(--nav-height))' }}>
 
       <div className="absolute bottom-20 left-1/2 -translate-x-1/2 -rotate-45 origin-center">
         {/* Step 1 - Center */}

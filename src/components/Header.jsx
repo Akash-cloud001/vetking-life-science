@@ -25,6 +25,7 @@ const Header = () => {
     <>
       <motion.header 
         className="header"
+        style={{ height: 'var(--nav-height)' }}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
@@ -36,11 +37,15 @@ const Header = () => {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <img src="/images/vetSolo.png" alt="VetKing Life Science" className="w-auto h-20" />
+              <img src="/images/vetSolo.png" alt="VetKing Life Science" className="w-auto h-18" />
             </motion.div>
             
             {/* Desktop Navigation */}
-            <ul className="nav-links hidden md:flex">
+            
+            
+            <div className="flex items-center gap-4 md:gap-10 justify-center">
+              {/* Mobile Hamburger Menu */}
+              <ul className="nav-links hidden md:flex">
               {navItems.map((item) => (
                 <li key={item.path}>
                   <Link
@@ -52,23 +57,19 @@ const Header = () => {
                 </li>
               ))}
             </ul>
-            
-            <div className="nav-buttons">
-              {/* Mobile Hamburger Menu */}
-              
               
               {/* Desktop Button */}
-              <Link to="/products" className="btn btn-primary font-geist !font-medium !text-base hidden md:inline-flex">
+              <Link to="/products" className="btn-small btn-primary font-geist !font-medium !text-small inline-flex">
                 View Products
               </Link>
 
               <button
                 onClick={toggleSidebar}
-                className="md:hidden cursor-pointer !px-4 py-2 rounded-lg btn-secondary hover:bg-gray-100 transition-colors"
+                className="md:hidden cursor-pointer rounded-lg btn-small btn-secondary hover:bg-gray-100 transition-colors"
                 aria-label="Toggle menu"
               >
                 <svg
-                  className="w-6 h-6"
+                  className="w-5 h-5"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -112,7 +113,11 @@ const Header = () => {
       <AnimatePresence>
         {isSidebarOpen && (
           <motion.div
-            className="fixed top-[112px] right-0 w-80 bg-white shadow-2xl z-50 md:hidden h-[calc(100vh-112px)]"
+            className="fixed right-0 w-80 bg-white shadow-2xl z-50 md:hidden"
+            style={{ 
+              top: 'var(--nav-height)',
+              height: 'calc(100vh - var(--nav-height))'
+            }}
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
