@@ -93,7 +93,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className='text-base md:text-lg text-balance font-light font-geist text-gray-600 max-w-[500px] !mx-auto lg:mx-0 !mb-8'
+              className='text-base md:text-lg text-balance font-light font-geist text-gray-600 max-w-[500px] !mx-auto lg:!mx-0 !mb-8'
             >
               We provide exceptional animal care products through innovative research and cutting-edge technology. 
             </motion.p>

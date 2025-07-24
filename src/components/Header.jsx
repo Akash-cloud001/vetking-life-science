@@ -1,62 +1,166 @@
 import { Link, useLocation } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState } from 'react'
 
 const Header = () => {
   const location = useLocation()
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 
   const navItems = [
     { path: '/', label: 'Home' },
+    { path: '/products', label: 'Products' },
     { path: '/about', label: 'About' },
-    { path: '/services', label: 'Services' },
-    { path: '/blog', label: 'Blog' },
+    { path: '/research', label: 'Research' },
   ]
 
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen)
+  }
+
+  const closeSidebar = () => {
+    setIsSidebarOpen(false)
+  }
+
   return (
-    <motion.header 
-      className="header"
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <div className="container">
-        <nav className="nav">
-          <motion.div 
-            className="logo"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-            VetKing Life Science
-          </motion.div>
-          
-          <ul className="nav-links">
-            {navItems.map((item) => (
-              <li key={item.path}>
-                <Link
-                  to={item.path}
-                  className={location.pathname === item.path ? 'active' : ''}
+    <>
+      <motion.header 
+        className="header"
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="container">
+          <nav className="nav">
+            <motion.div 
+              className="logo"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <img src="/images/vetSolo.png" alt="VetKing Life Science" className="w-auto h-20" />
+            </motion.div>
+            
+            {/* Desktop Navigation */}
+            <ul className="nav-links hidden md:flex">
+              {navItems.map((item) => (
+                <li key={item.path}>
+                  <Link
+                    to={item.path}
+                    className={location.pathname === item.path ? 'active' : ''}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            
+            <div className="nav-buttons">
+              {/* Mobile Hamburger Menu */}
+              
+              
+              {/* Desktop Button */}
+              <Link to="/products" className="btn btn-primary font-geist !font-medium !text-base hidden md:inline-flex">
+                View Products
+              </Link>
+
+              <button
+                onClick={toggleSidebar}
+                className="md:hidden cursor-pointer !px-4 py-2 rounded-lg btn-secondary hover:bg-gray-100 transition-colors"
+                aria-label="Toggle menu"
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                  {item.label}
+                  {isSidebarOpen ? (
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  ) : (
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  )}
+                </svg>
+              </button>
+            </div>
+          </nav>
+        </div>
+      </motion.header>
+
+      {/* Mobile Sidebar Overlay */}
+      <AnimatePresence>
+        {isSidebarOpen && (
+          <motion.div
+            className="fixed inset-0 bg-black/50 z-40 md:hidden "
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={closeSidebar}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Mobile Sidebar */}
+      <AnimatePresence>
+        {isSidebarOpen && (
+          <motion.div
+            className="fixed top-[112px] right-0 w-80 bg-white shadow-2xl z-50 md:hidden h-[calc(100vh-112px)]"
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ type: 'tween', duration: 0.3 }}
+          >
+            <div className="flex flex-col h-full">
+              {/* Sidebar Header */}
+              {/* Sidebar Navigation */}
+              <nav className="flex-1 p-6">
+                <ul className="space-y-4">
+                  {navItems.map((item, index) => (
+                    <motion.li
+                      key={item.path}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                    >
+                      <Link
+                        to={item.path}
+                        onClick={closeSidebar}
+                        className={`block !py-3 !px-4  text-lg font-medium transition-colors ${
+                          location.pathname === item.path
+                            ? 'bg-primary-purple text-white'
+                            : 'text-gray-700 hover:bg-gray-100'
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                    </motion.li>
+                  ))}
+                </ul>
+              </nav>
+
+              {/* Sidebar Footer */}
+              {/* <div className="p-6 border-t border-gray-200">
+                <Link
+                  to="/products"
+                  onClick={closeSidebar}
+                  className="btn btn-primary font-geist !font-medium !text-base w-full justify-center"
+                >
+                  View Products
                 </Link>
-              </li>
-            ))}
-          </ul>
-          
-          <div className="nav-buttons">
-            <Link to="/contact" className="btn btn-secondary">
-              Get Started
-            </Link>
-            <Link to="/contact" className="btn btn-primary">
-              Contact Us
-            </Link>
-          </div>
-        </nav>
-      </div>
-    </motion.header>
+              </div> */}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   )
 }
 
