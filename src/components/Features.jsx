@@ -1,40 +1,49 @@
 import { motion } from 'framer-motion'
+import Dna from './svgs/Dna'
+import Tube from './svgs/Tube'
 
 const Features = () => {
   return (
-    <section className="section">
-      <div className="container">
+    <section className="max-w-[1200px] rounded-4xl !mx-auto section bg-gradient-to-br from-primary-purple to-primary-green relative overflow-hidden">
+      
+      <div className="relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-        >
-          <h2 className="section-title">Your Trusted Veterinary Healthcare Providers</h2>
-          <p className="section-subtitle">
-            We provide comprehensive veterinary services with cutting-edge technology and compassionate care.
-          </p>
-          
-          <div className="grid grid-2">
-            <div className="card card-gradient">
-              <h3>Very fast and accurate service with us</h3>
-              <p>Advanced diagnostic tools and rapid response times for emergency care.</p>
-            </div>
-            
-            <div className="grid grid-3">
-              <div className="stats-card">
-                <div className="stats-number">100%</div>
-                <div className="stats-label">Our Doctors Certified</div>
-              </div>
-              <div className="stats-card">
-                <div className="stats-number">25M+</div>
-                <div className="stats-label">Happy global users</div>
-              </div>
-              <div className="stats-card">
-                <div className="stats-number">99%</div>
-                <div className="stats-label">Satisfying treatment</div>
-              </div>
-            </div>
+        >          
+          <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-2 sm:gap-6 md:gap-8 ">
+              <motion.div 
+                className="!p-4 sm:!p-8 text-center"
+                initial={{ opacity: 0, scale: 1, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-3xl sm:text-5xl font-geist font-bold text-white">100%</div>
+                <div className="text-white/80 text-sm font-medium">Quality Certified</div>
+              </motion.div>
+              <motion.div 
+                className="!p-4 sm:!p-8 text-center"
+                initial={{ opacity: 0, scale: 1, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-3xl sm:text-5xl font-geist font-bold text-white">50M+</div>
+                <div className="text-white/80 text-sm font-medium">Products Delivered</div>
+              </motion.div>
+              <motion.div 
+                className="!p-4 sm:!p-8 text-center"
+                initial={{ opacity: 0, scale: 1, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-3xl sm:text-5xl font-geist font-bold text-white">99%</div>
+                <div className="text-white/80 text-sm font-medium">Customer Satisfaction</div>
+              </motion.div>
           </div>
         </motion.div>
       </div>
