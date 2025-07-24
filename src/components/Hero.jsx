@@ -7,7 +7,7 @@ import Dna from './svgs/Dna'
 import ImageCarousel from './ui/ImageCarousel'
 const Hero = () => {
   return (
-    <section className="h-[calc(100dvh-100px)] flex items-center justify-start relative overflow-hidden">
+    <section className="h-[calc(100dvh-85px)] flex items-center justify-start relative overflow-hidden">
 
       <div className="absolute bottom-20 left-1/2 -translate-x-1/2 -rotate-45 origin-center">
         {/* Step 1 - Center */}
@@ -72,10 +72,10 @@ const Hero = () => {
 
       {/* Main content */}
       <div className="container w-full relative z-10">
-        <div className="flex items-center justify-between gap-12 h-full">
-          {/* Left Content */}
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 h-full">
+          {/* Left Content - Centered on mobile */}
           <motion.div 
-            className="flex-1 max-w-2xl"
+            className="flex-1 max-w-2xl text-center lg:text-left"
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
@@ -84,16 +84,16 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className='text-6xl font-medium font-geist text-gray-900 tracking-tight text-balance !mb-6'
+              className='text-4xl md:text-6xl font-medium font-geist text-gray-900 tracking-tight sm:text-balance !mb-6'
             >
-              Discover Our <span className='font-branch font-bold text-[70px] text-primary-purple'>Mission</span> and <span className='font-branch font-bold text-[70px] text-primary-green'>Values</span> in Premium Animal Products
+              Discover Our <span className='font-branch font-bold text-[40px] md:text-[70px] text-primary-purple'>Mission</span> and <span className='font-branch font-bold text-[40px] md:text-[70px] text-primary-green'>Values</span> in Premium Animal Products
             </motion.h1>
             
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className='text-lg text-balance font-light font-geist text-gray-600 max-w-[500px] !mb-8'
+              className='text-base md:text-lg text-balance font-light font-geist text-gray-600 max-w-[500px] !mx-auto lg:mx-0 !mb-8'
             >
               We provide exceptional animal care products through innovative research and cutting-edge technology. 
             </motion.p>
@@ -102,6 +102,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
+              className="flex justify-center lg:justify-start"
             >
               <a href="#contact" className="btn btn-primary">
                 Explore Products
@@ -112,8 +113,10 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Image */}
-          <ImageCarousel />
+          {/* Right Image - Hidden on mobile */}
+          <div className="hidden lg:block">
+            <ImageCarousel />
+          </div>
         </div>
       </div>
     </section>

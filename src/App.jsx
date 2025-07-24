@@ -14,7 +14,7 @@ function App() {
     <Router>
       <div className="app">
         <Header />
-        <main>
+        <main className='!px-4'>
           <Routes>
             <Route path="/" element={
               <>
