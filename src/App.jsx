@@ -21,8 +21,8 @@ function App() {
                 <Hero />
                 <Features />
                 <Goals />
-                <Team />
-                <Services />
+                {/* <Team />
+                <Services /> */}
                 <CTA />
               </>
             } />

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import AnimatedBadge from './ui/AnimatedBadge'
 
 const Goals = () => {
   const goals = [
@@ -47,16 +48,7 @@ const Goals = () => {
           viewport={{ once: true }}
         >
           <div className="text-center mb-16">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm !px-4 !py-1 rounded-full border border-gray-200 mb-6 animate-pulse"
-            >
-              <span className="w-2 h-2 bg-primary-purple rounded-full"></span>
-              <span className="text-sm font-medium text-gray-600">Our Mission</span>
-            </motion.div>
+            <AnimatedBadge text="Our Mission" className="bg-white/80 border-gray-200" textClass="text-gray-600" />
             
             <h2 className="section-title font-geist text-4xl md:text-5xl !mt-2 !mb-12">
               Let's know about our 
