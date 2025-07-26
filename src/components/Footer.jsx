@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 
 const Footer = () => {
   return (
-    <footer className="footer">
+    <footer className="bg-gray-50 !pt-16 !pb-8">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -10,52 +10,51 @@ const Footer = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="section-title">Let's Connect with us</h2>
           
-          <div className="footer-content">
-            <div className="footer-section">
-              <h3>Company</h3>
-              <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Team</a></li>
-                <li><a href="#">Careers</a></li>
-              </ul>
+          <div className="footer-content flex flex-col md:flex-row justify-between items-start gap-8">
+            {/* Left Side - Company Info */}
+            <div className="company-info flex-1 max-w-md">
+              <div className="company-logo mb-4">
+                <img src="/images/vetSolo.png" alt="VetKing Life Science" className="h-32 w-auto" />
+              </div>
+              <p className="text-gray-600 text-sm !my-2 font-medium">
+                Our vision is to provide exceptional animal care products through innovative research and cutting-edge technology.
+              </p>
+              <div className="contact-details flex flex-col gap-1">
+                <p className="text-sm text-gray-600 font-medium">123 Science Park Drive</p>
+                <p className="text-sm text-gray-600 font-medium">Research Triangle, NC 27709</p>
+                <a href="mailto:info@vetking.com" className="text-sm text-gray-600 font-medium block">Email: info@vetking.com</a>
+                <a href="tel:+15551234567" className="text-sm text-gray-600 font-medium">Phone: +1 (555) 123-4567</a>
+              </div>
             </div>
             
-            <div className="footer-section">
-              <h3>Services</h3>
-              <ul>
-                <li><a href="#">Primary Care</a></li>
-                <li><a href="#">Emergency Care</a></li>
-                <li><a href="#">Surgery</a></li>
-                <li><a href="#">Diagnostics</a></li>
-              </ul>
-            </div>
-            
-            <div className="footer-section">
-              <h3>Resources</h3>
-              <ul>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Research</a></li>
-                <li><a href="#">Publications</a></li>
-                <li><a href="#">Education</a></li>
-              </ul>
-            </div>
-            
-            <div className="footer-section">
-              <h3>Contact</h3>
-              <ul>
-                <li><a href="#">Get in Touch</a></li>
-                <li><a href="#">Book Appointment</a></li>
-                <li><a href="#">Emergency</a></li>
-                <li><a href="#">Support</a></li>
-              </ul>
+            {/* Right Side - Navigation Links */}
+            <div className=" flex flex-col md:flex-row gap-4 lg:gap-12 items-start md:items-end justify-start md:justify-end">
+              
+              <div className="footer-section">
+                  <h3 className="font-semibold text-gray-800 mb-4">Products</h3>
+                  <ul className="space-y-2">
+                  <li><a href="#" className="text-gray-500 hover:text-gray-900">About Us</a></li>
+                    <li><a href="#" className="text-gray-500 hover:text-gray-900">Pet Nutrition</a></li>
+                    <li><a href="#" className="text-gray-500 hover:text-gray-900">Veterinary Supplies</a></li>
+                    <li><a href="#" className="text-gray-500 hover:text-gray-900">Hygiene Products</a></li>
+                  </ul>
+                </div>
+                
+                <div className="footer-section  !mb-4 md:!mb-0" >
+                  <h3 className="font-semibold text-gray-800 ">Resources</h3>
+                  <ul className="space-y-2">
+                  <li><a href="#" className="text-gray-500 hover:text-gray-900">Manufacturing</a></li>
+                    <li><a href="#" className="text-gray-500 hover:text-gray-900">Product Catalog</a></li>
+                    <li><a href="#" className="text-gray-500 hover:text-gray-900">Quality Standards</a></li>
+                    <li><a href="#" className="text-gray-500 hover:text-gray-900">Technical Support</a></li>
+                  </ul>
+                </div>
             </div>
           </div>
           
-          <div className="footer-bottom">
-            <p>&copy; 2024 VetKing Life Science. All rights reserved.</p>
+          <div className="footer-bottom border-t border-gray-200 pt-8 mt-8">
+            <p className="text-gray-500 text-sm">&copy; 2025 VetKing Life Science. All rights reserved. | Premium Animal Care Products</p>
           </div>
         </motion.div>
       </div>
