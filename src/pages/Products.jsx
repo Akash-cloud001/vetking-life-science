@@ -75,7 +75,7 @@ const Products = () => {
       </section>
 
       {/* Hero Section */}
-      <section className="pt-0 pb-8 md:pb-16">
+      <section className="md:pb-12">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
