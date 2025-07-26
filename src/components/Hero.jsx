@@ -5,6 +5,7 @@ import Microscope from './svgs/Microscope'
 import Tube from './svgs/Tube'
 import Dna from './svgs/Dna'
 import ImageCarousel from './ui/ImageCarousel'
+import { Link } from 'react-router-dom'
 const Hero = () => {
   return (
     <section className="flex items-center justify-start relative overflow-hidden" style={{ height: 'calc(100dvh - var(--nav-height))' }}>
@@ -104,12 +105,12 @@ const Hero = () => {
               transition={{ delay: 0.6, duration: 0.8 }}
               className="flex justify-center lg:justify-start"
             >
-              <a href="#contact" className="btn btn-primary">
+              <Link to="/products" className="btn btn-primary">
                 Explore Products
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-              </a>
+              </Link>
             </motion.div>
           </motion.div>
 

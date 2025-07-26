@@ -173,7 +173,7 @@ const Products = () => {
                     <motion.button
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="w-4/5 bg-gradient-to-r from-primary-purple to-primary-green text-white py-3 px-6 rounded-2xl font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-300 group-hover:shadow-2xl absolute bottom-5 left-1/2 -translate-x-1/2 "
+                      className="w-4/5 bg-gradient-to-r from-primary-purple to-primary-green text-white py-3 px-6 rounded-lg font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-300 group-hover:shadow-2xl absolute bottom-5 left-1/2 -translate-x-1/2 "
                     >
                       Learn More
                     </motion.button>

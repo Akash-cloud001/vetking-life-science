@@ -9,13 +9,16 @@ import Services from './components/Services'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
 import Products from './pages/Products'
+import ProductDetail from './pages/ProductDetail'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   return (
     <Router>
       <div className="app">
+        <ScrollToTop />
         <Header />
-        <main className='!px-4'>
+        <main className='px-4 md:px-0'>
           <Routes>
             <Route path="/" element={
               <>
@@ -30,6 +33,7 @@ function App() {
             <Route path="/about" element={<Goals />} />
             <Route path="/contact" element={<CTA />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/products/:id" element={<ProductDetail />} />
           </Routes>
         </main>
         <Footer />

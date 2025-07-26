@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -34,7 +35,7 @@ const Footer = () => {
               <div className="footer-section">
                   <h3 className="font-semibold text-gray-800 mb-4">Products</h3>
                   <ul className="space-y-2">
-                  <li><a href="#" className="text-gray-500 hover:text-gray-900">About Us</a></li>
+                    <li><a href="#" className="text-gray-500 hover:text-gray-900">About Us</a></li>
                     <li><a href="#" className="text-gray-500 hover:text-gray-900">Pet Nutrition</a></li>
                     <li><a href="#" className="text-gray-500 hover:text-gray-900">Veterinary Supplies</a></li>
                     <li><a href="#" className="text-gray-500 hover:text-gray-900">Hygiene Products</a></li>
@@ -45,7 +46,7 @@ const Footer = () => {
                   <h3 className="font-semibold text-gray-800 ">Resources</h3>
                   <ul className="space-y-2">
                   <li><a href="#" className="text-gray-500 hover:text-gray-900">Manufacturing</a></li>
-                    <li><a href="#" className="text-gray-500 hover:text-gray-900">Product Catalog</a></li>
+                    <li><Link  to="/products" className="text-gray-500 hover:text-gray-900">Product Catalog</Link></li>
                     <li><a href="#" className="text-gray-500 hover:text-gray-900">Quality Standards</a></li>
                     <li><a href="#" className="text-gray-500 hover:text-gray-900">Technical Support</a></li>
                   </ul>

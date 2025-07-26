@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import AnimatedBadge from './ui/AnimatedBadge'
+import { Link } from 'react-router-dom'
 
 const CTA = () => {
   return (
@@ -45,20 +46,19 @@ const CTA = () => {
             className="flex flex-col sm:flex-row gap-6 justify-center items-center "
           >
             {/* Primary CTA */}
-            <motion.a
-              href="#contact"
-              className="group relative overflow-hidden btn-small md:btn bg-gradient-to-r from-primary-purple to-primary-green text-white px-8 !py-3 rounded-2xl font-semibold text-lg shadow-2xl hover:shadow-primary-purple/25 transition-all duration-300"
-              whileHover={{ y: -3, scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+              className="flex justify-center lg:justify-start"
             >
-              <span className="relative z-10 flex items-center gap-3">
-                Product Catalog
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              <Link to="/products" className="btn btn-primary">
+                Explore Products
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-primary-green to-primary-purple opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </motion.a>
+              </Link>
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>
