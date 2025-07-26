@@ -13,7 +13,7 @@ const Footer = () => {
           
           <div className="footer-content flex flex-col md:flex-row justify-between items-start gap-8">
             {/* Left Side - Company Info */}
-            <div className="company-info flex-1 max-w-md">
+            <div className="company-info flex-1 max-w-md !mb-4">
               <div className="company-logo mb-4">
                 <img src="/images/vetSolo.png" alt="VetKing Life Science" className="h-32 w-auto" />
               </div>
