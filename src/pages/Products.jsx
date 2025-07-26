@@ -1,74 +1,81 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import AnimatedBadge from '../components/ui/AnimatedBadge'
+import { getAllProducts } from '../data/products'
 
 const Products = () => {
-  const products = [
-    {
-      id: 1,
-      name: "VitaPet Plus",
-      category: "Pet Nutrition",
-      description: "Advanced multivitamin supplement for dogs and cats with essential nutrients for optimal health and vitality.",
-      image: "/images/bottle1.png",
-      features: ["Omega-3 Fatty Acids", "Antioxidants", "Digestive Enzymes"],
-      price: "₹2,499",
-      gradient: "from-blue-500 to-purple-600"
-    },
-    {
-      id: 2,
-      name: "CleanCare Pro",
-      category: "Hygiene Products",
-      description: "Professional-grade cleaning solution for veterinary equipment and facilities with antimicrobial properties.",
-      image: "/images/Spray-Bottle.jpg",
-      features: ["Antimicrobial", "Non-toxic", "Fast-acting"],
-      price: "₹500",
-      gradient: "from-green-500 to-blue-600"
-    },
-    {
-      id: 3,
-      name: "ImmuneBoost Max",
-      category: "Pet Nutrition",
-      description: "Immune system support formula designed to strengthen natural defenses and promote overall wellness.",
-      image: "/images/vitamins.jpg",
-      features: ["Vitamin C", "Echinacea", "Probiotics"],
-      price: "₹500",
-      gradient: "from-purple-500 to-pink-600"
-    },
-    {
-      id: 4,
-      name: "SafeInject Kit",
-      category: "Veterinary Supplies",
-      description: "Complete injection kit with safety features for precise and secure veterinary procedures.",
-      image: "/images/bottle1.png",
-      features: ["Safety Lock", "Precision Needle", "Sterile"],
-      price: "₹500",
-      gradient: "from-orange-500 to-red-600"
-    },
-    {
-      id: 5,
-      name: "DermaCare Solution",
-      category: "Hygiene Products",
-      description: "Specialized skin care treatment for pets with sensitive skin and dermatological conditions.",
-      image: "/images/Spray-Bottle.jpg",
-      features: ["Hypoallergenic", "Moisturizing", "Anti-inflammatory"],
-      price: "₹500",
-      gradient: "from-teal-500 to-cyan-600"
-    },
-    {
-      id: 6,
-      name: "JointFlex Advanced",
-      category: "Pet Nutrition",
-      description: "Joint health supplement with glucosamine and chondroitin for improved mobility and comfort.",
-      image: "/images/vitamins.jpg",
-      features: ["Glucosamine", "Chondroitin", "MSM"],
-      price: "₹500",
-      gradient: "from-indigo-500 to-purple-600"
+  const [products, setProducts] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        setLoading(true)
+        setError(null)
+        const result = await getAllProducts()
+        
+        if (result.success) {
+          setProducts(result.data)
+        } else {
+          setError(result.error)
+        }
+      } catch (err) {
+        setError('Failed to fetch products')
+      } finally {
+        setLoading(false)
+      }
     }
-  ]
+
+    fetchProducts()
+  }, [])
+
+  // Loading state
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-primary-purple mx-auto mb-4"></div>
+          <p className="text-gray-600 text-lg">Loading products...</p>
+        </div>
+      </div>
+    )
+  }
+
+  // Error state
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="text-red-500 text-6xl mb-4">⚠️</div>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">Oops! Something went wrong</h2>
+          <p className="text-gray-600 mb-6">{error}</p>
+          <button 
+            onClick={() => window.location.reload()} 
+            className="bg-gradient-to-r from-primary-purple to-primary-green text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
+          >
+            Try Again
+          </button>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <section className="pt-10 pb-0">
+        <div className="container">
+          <nav className="flex items-center space-x-2 text-sm text-gray-600 mb-8">
+            <Link to="/" className="hover:text-primary-purple transition-colors">Home</Link>
+            <span>/</span>
+            <span className="text-gray-900 font-medium">Products</span>
+          </nav>
+        </div>
+      </section>
+
       {/* Hero Section */}
-      <section className="pt-24 pb-16">
+      <section className="pt-0 pb-16">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -112,12 +119,12 @@ const Products = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100"
+                className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 relative"
               >
                 {/* Product Image */}
                 <div className="relative h-64 overflow-hidden">
                   <img 
-                    src={product.image} 
+                    src={product.images[0]} 
                     alt={product.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
@@ -149,26 +156,28 @@ const Products = () => {
                   </p>
                   
                   {/* Features */}
-                  <div className="mb-6">
+                  <div className="mb-15">
                     <h4 className="text-sm font-semibold text-gray-900 mb-2">Key Features:</h4>
                     <ul className="space-y-1">
-                      {product.features.map((feature, featureIndex) => (
+                      {product.features.slice(0, 3).map((feature, featureIndex) => (
                         <li key={featureIndex} className="flex items-center text-sm text-gray-600">
-                          <span className="w-1.5 h-1.5 bg-primary-purple rounded-full mr-2"></span>
-                          {feature}
+                          <span className="w-1.5 h-1.5 bg-primary-purple rounded-full mr-2 "></span>
+                          <span className="truncate">{feature}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                   
                   {/* CTA Button */}
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full bg-gradient-to-r from-primary-purple to-primary-green text-white py-3 px-6 rounded-2xl font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-300 group-hover:shadow-2xl"
-                  >
-                    Learn More
-                  </motion.button>
+                  <Link to={`/products/${product.id}`}>
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="w-4/5 bg-gradient-to-r from-primary-purple to-primary-green text-white py-3 px-6 rounded-2xl font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-300 group-hover:shadow-2xl absolute bottom-5 left-1/2 -translate-x-1/2 "
+                    >
+                      Learn More
+                    </motion.button>
+                  </Link>
                 </div>
               </motion.div>
             ))}

@@ -188,10 +188,7 @@ body {
 }
 
 /* Grid layouts */
-.grid {
-  display: grid;
-  gap: 2rem;
-}
+
 
 .grid-2 {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
