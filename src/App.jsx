@@ -8,6 +8,7 @@ import Team from './components/Team'
 import Services from './components/Services'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
+import Products from './pages/Products'
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             } />
             <Route path="/about" element={<Goals />} />
             <Route path="/contact" element={<CTA />} />
+            <Route path="/products" element={<Products />} />
           </Routes>
         </main>
         <Footer />

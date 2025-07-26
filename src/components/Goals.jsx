@@ -47,10 +47,10 @@ const Goals = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <AnimatedBadge text="Our Mission" className="bg-white/80 border-gray-200" textClass="text-gray-600" />
             
-            <h2 className="section-title font-geist text-4xl md:text-5xl !mt-2 !mb-12">
+            <h2 className="section-title font-geist text-4xl md:text-5xl">
               Let's know about our 
               <span className="bg-gradient-to-r from-primary-purple to-primary-green bg-clip-text text-transparent font-branch capitalize font-semibold"> main goal</span>
             </h2>
@@ -88,9 +88,9 @@ const Goals = () => {
                   </div>
                   
                   <div className="!px-4 !py-4 flex-1 flex flex-col">
-                    <div className="flex items-start gap-4 mb-8">
+                    <div className="flex items-start gap-4 mb-3">
                       <div className="flex-1">
-                        <h3 className="text-2xl font-semibold text-gray-800 !mb-2 group-hover:text-primary-purple transition-colors duration-300 font-geist">
+                        <h3 className="text-2xl font-semibold text-gray-800 group-hover:text-primary-purple transition-colors duration-300 font-geist">
                           {goal.title}
                         </h3>
                       </div>
@@ -151,9 +151,9 @@ const Goals = () => {
                   </div>
                   
                   <div className="!px-4 !py-4 flex-1 flex flex-col">
-                    <div className="flex items-start gap-4 mb-8">
+                    <div className="flex items-start gap-4 mb-3">
                       <div className="flex-1">
-                        <h3 className="text-2xl font-semibold text-gray-800 !mb-2 group-hover:text-primary-purple transition-colors duration-300 font-geist">
+                        <h3 className="text-2xl font-semibold text-gray-800 group-hover:text-primary-purple transition-colors duration-300 font-geist">
                           {goals[2].title}
                         </h3>
                       </div>
@@ -186,21 +186,6 @@ const Goals = () => {
             </motion.div>
           </div>
           
-          <motion.div
-            className="mt-20 text-center"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <div className="bg-gradient-to-r from-primary-purple to-primary-green rounded-3xl p-12 text-white relative overflow-hidden">
-              {/* Background Pattern */}
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-0 left-0 w-32 h-32 bg-white rounded-full -translate-x-16 -translate-y-16"></div>
-                <div className="absolute bottom-0 right-0 w-24 h-24 bg-white rounded-full translate-x-12 translate-y-12"></div>
-              </div>
-            </div>
-          </motion.div>
         </motion.div>
       </div>
     </section>

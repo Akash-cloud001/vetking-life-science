@@ -14,7 +14,7 @@ const AnimatedBadge = ({
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.6, delay }}
       viewport={{ once: true }}
-      className={`inline-flex items-center gap-2  backdrop-blur-sm !px-4 !py-1 rounded-full border mb-6 ${className}`}
+      className={`inline-flex items-center gap-2  backdrop-blur-sm !px-4 !py-1 rounded-full border mb-4 ${className}`}
       {...props}
     >
       <span className={`w-2 h-2 ${dotColor} rounded-full`}></span>
