@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 
 const Features = () => {
   return (
-    <section className="max-w-[1200px] rounded-4xl !mx-auto  bg-white relative overflow-hidden border border-gray-100 shadow-lg !px-12 !py-12">
+    <section className="max-w-[1200px] rounded-4xl !mx-auto  bg-white relative overflow-hidden border border-gray-100 shadow-lg !p-8 md:!p-12">
       
       <div className="relative z-10">
         <motion.div
@@ -10,7 +10,7 @@ const Features = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="flex flex-col lg:flex-row items-center justify-between gap-12"
+          className="flex flex-col lg:flex-row items-center justify-between gap-8 md:gap-12"
         >          
           {/* Left Side - Content */}
           <div className="flex-1 max-w-lg">
@@ -49,8 +49,8 @@ const Features = () => {
                 viewport={{ once: true }}
                 whileHover={{ y: -5, scale: 1.02 }}
               >
-                <div className="text-3xl md:text-4xl font-bold text-primary-purple mb-2">100%</div>
-                <div className="text-gray-700 font-medium text-sm">Quality Certified</div>
+                <div className="text-2xl md:text-4xl font-bold text-primary-purple mb-2">100%</div>
+                <div className="text-gray-700 font-medium text-xs md:text-sm">Quality Certified</div>
               </motion.div>
               
               <motion.div 
@@ -61,8 +61,8 @@ const Features = () => {
                 viewport={{ once: true }}
                 whileHover={{ y: -5, scale: 1.02 }}
               >
-                <div className="text-3xl md:text-4xl font-bold text-primary-green mb-2">50M+</div>
-                <div className="text-gray-700 font-medium text-sm">Products Delivered</div>
+                <div className="text-2xl md:text-4xl font-bold text-primary-green mb-2">50M+</div>
+                <div className="text-gray-700 font-medium text-xs md:text-sm">Products Delivered</div>
               </motion.div>
               
               <motion.div 
@@ -73,8 +73,8 @@ const Features = () => {
                 viewport={{ once: true }}
                 whileHover={{ y: -5, scale: 1.02 }}
               >
-                <div className="text-3xl md:text-4xl font-bold text-purple-600 mb-2">99%</div>
-                <div className="text-gray-700 font-medium text-sm">Customer Satisfaction</div>
+                <div className="text-2xl md:text-4xl font-bold text-purple-600 mb-2">99%</div>
+                <div className="text-gray-700 font-medium text-xs md:text-sm">Customer Satisfaction</div>
               </motion.div>
               
               <motion.div 
@@ -85,8 +85,8 @@ const Features = () => {
                 viewport={{ once: true }}
                 whileHover={{ y: -5, scale: 1.02 }}
               >
-                <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">24/7</div>
-                <div className="text-gray-700 font-medium text-sm">Support Available</div>
+                <div className="text-2xl md:text-4xl font-bold text-green-600 mb-2">24/7</div>
+                <div className="text-gray-700 font-medium text-xs md:text-sm">Support Available</div>
               </motion.div>
             </div>
             
