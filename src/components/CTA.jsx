@@ -27,7 +27,7 @@ const CTA = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl lg:text-6xl font-semibold font-geist text-white !my-6 md:!my-6"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold font-geist text-white !my-6 md:!my-6"
           >
             Bring your animal care products to the{' '}
             <span className="bg-gradient-to-r from-primary-purple to-primary-green bg-clip-text text-transparent font-branch capitalize">
